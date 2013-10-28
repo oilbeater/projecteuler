@@ -17,8 +17,16 @@ def sol2():
     fives = sum((i*5 for i in range(1000/5)))
     fifteens = sum((i*15 for i in range(1000/15 + 1)))
     return threes + fives - fifteens
+
+def sol3():
+    threes = (1 + 1000/3) * 3 * (1000 / 3) / 2 
+    fives = (1 + 1000/5 - 1) * 5 / 2 * (1000/5 - 1)
+    fifteens = (1 + 1000/15) * 15 * (1000 / 15) / 2 
+    return threes + fives - fifteens
 print str(sol1())
 print str(sol2())
+print str(sol3())
 
-print timeit.timeit('sol1()',"from __main__ import sol1", number = 10000)
-print timeit.timeit('sol2()',"from __main__ import sol2", number = 10000)
+print timeit.timeit('sol1()',"from __main__ import sol1", number = 100000)
+print timeit.timeit('sol2()',"from __main__ import sol2", number = 100000)
+print timeit.timeit('sol3()',"from __main__ import sol3", number = 100000)
