@@ -24,12 +24,22 @@ def fib2():
     a,b = 0,1
     while a < 4000000:
         yield a
-        a,b = b,a + b
-        a,b = b,a + b
-        a,b = b,a + b
+        a, b = b, a + b
+        a, b = b, a + b
+        a, b = b, a + b
 
 result = sum((i for i in fib2()))
 print str(result)
 
-print timeit.timeit('sum((i for i in fib1()))',"from __main__ import fib1", number = 10000)
-print timeit.timeit('sum((i for i in fib2()))',"from __main__ import fib2", number = 10000)
+def fib3():
+    a,b = 2,8
+    while a < 4000000:
+        yield a
+        a, b = b, 4 * b + a
+
+result = sum((i for i in fib3()))
+print str(result)
+
+print timeit.timeit('sum((i for i in fib1()))',"from __main__ import fib1", number = 100000)
+print timeit.timeit('sum((i for i in fib2()))',"from __main__ import fib2", number = 100000)
+print timeit.timeit('sum((i for i in fib3()))',"from __main__ import fib3", number = 100000)
