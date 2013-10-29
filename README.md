@@ -10,3 +10,4 @@ Largest palindrome product
 
 Smallest multiple
 
+Sum square difference
