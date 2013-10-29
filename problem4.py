@@ -11,7 +11,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 import timeit
 
 
-def isPalindrome(num):
+def is_palindrome(num):
     numstr = str(num)
     if numstr == numstr[::-1]:
         return True
@@ -23,7 +23,7 @@ def sol1():
     res = 0
     for first in range(999, 99, -1):
         for second in range(first, 99, -1):
-            if first * second > res and isPalindrome(first * second):
+            if first * second > res and is_palindrome(first * second):
                 res = first * second
     return res
 
@@ -34,7 +34,7 @@ def sol2():
         for second in range(first, 99, -1):
             if first * second < res:
                 break
-            if isPalindrome(first * second):
+            if is_palindrome(first * second):
                 res = first * second
     return res
 
