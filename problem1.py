@@ -9,14 +9,17 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 import timeit
 
+
 def sol1():
-    return sum((i for i in range(1000) if i%3 == 0 or i % 5 == 0))
+    return sum((i for i in range(1000) if i % 3 == 0 or i % 5 == 0))
+
 
 def sol2():
     threes = sum((i*3 for i in range(1000/3 + 1)))
     fives = sum((i*5 for i in range(1000/5)))
     fifteens = sum((i*15 for i in range(1000/15 + 1)))
     return threes + fives - fifteens
+
 
 def sol3():
     threes = (1 + 1000/3) * 3 * (1000 / 3) / 2 
