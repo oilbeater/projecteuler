@@ -11,3 +11,5 @@ Largest palindrome product
 Smallest multiple
 
 Sum square difference
+
+10001st prime
