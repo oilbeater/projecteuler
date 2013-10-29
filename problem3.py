@@ -49,11 +49,27 @@ def sol2(func1,func2):
                 break
         else:
             return factor
-            
+
+def sol3(num):
+    lastFactor = 1
+    if num == 2:
+        return 2
+    while num % 2 == 0:
+        num = num/2
+    for factor in range(3,int(sqrt(num)) + 1,2):
+        if num < factor:
+            break
+        while num % factor == 0:
+            lastFactor = factor
+            num = num/factor
+    return lastFactor
+
 print sol1(findFactors1,isPrime)
 print sol1(findFactors2,isPrime)
 print sol2(findFactors2,isPrime)
+print sol3(600851475143)
 
 print timeit.timeit('sol1(findFactors1,isPrime)',"from __main__ import sol1,sol2,isPrime,findFactors2,findFactors1", number = 100)
 print timeit.timeit('sol1(findFactors2,isPrime)',"from __main__ import sol1,sol2,isPrime,findFactors2,findFactors1", number = 100)
 print timeit.timeit('sol2(findFactors2,isPrime)',"from __main__ import sol1,sol2,isPrime,findFactors2,findFactors1", number = 100)
+print timeit.timeit('sol3(600851475143)',"from __main__ import sol3", number = 100)
